@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.Where(name: "Job").first_or_create
+Category.Where(name: "News").first_or_create
+Category.Where(name: "Report").first_or_create
+Category.Where(name: "Event").first_or_create
