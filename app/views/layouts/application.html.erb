@@ -10,12 +10,21 @@
   </head>
 
   <body>
-  <h1 style = " background-color:orange">Header</h1><br>
-  <%= button_to "sign out", destroy_user_session_path , :method => "delete"%>
- 
-     <h1>Deshbord</h1>
+    <div>
+      <h1 style = " background-color:orange">Header</h1><br>
+      <h1>Deshbord</h1>
+      <% if user_signed_in? %>
+        <%= link_to "sign out", destroy_user_session_path , :method => "delete"%>
+      <% else %>
+        <%= link_to "sign up", new_user_registration_path %>
+        <%= link_to "sign in", new_user_session_path %>
+      <% end %>
+
+    <div>
     <%= yield %>
     <br>
-      <h1 style = " background-color:blue; bottom: 0">footer</h1>
+        <%= link_to "new post", new_post_path %>
+
+      <h1 style = " background-color:blue; bottom: 0px;">footer</h1>
   </body>
 </html>
