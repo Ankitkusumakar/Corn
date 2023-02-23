@@ -12,6 +12,9 @@
 
 	<%= form.label :description %>
 	<%= form.text_area :description %>
+
+	<%= form.label :image %>
+	<%= form.file_field :image %>
 	<br><br>
 
    <%= form.label :category_id %>
@@ -20,6 +23,5 @@
 
 	<%= form.label :active %>
 	<%= form.check_box :active %>
-	<br><br>
 	<%= form.submit %>
 <% end %>

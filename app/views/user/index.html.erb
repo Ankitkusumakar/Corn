@@ -1,4 +1,15 @@
 <% @posts.each do |i| %>
 <b>Title:</b><%= i.title %> <br>
 <b>Description:</b><%= i.description%><br>
+<p>image: <%=image_tag i.image if i.image.attached?%><br>
+<%= i.likes.size %><%= (i.likes.size) == 1 ? 'Like' : 'Likes'   %>
+
+      <% pre_like = i.likes.where(user_id: current_user, active: true).any?%>
+      <% if pre_like %>
+        <%= button_to 'Unlike', like_post_post_path(i), method: :put %>
+      <% else %>
+        <%= button_to  'Like', like_post_post_path(i), method: :put %>
+      <% end %>
+
+       <%= button_to "Delete",post_path(i), :method => :delete %>
 <% end %>
